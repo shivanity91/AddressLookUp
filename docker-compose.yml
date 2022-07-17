@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  
+  ping-api:
+    build:
+      context: ./
+      dockerfile: PingWorker.Api/Dockerfile
+    ports:
+     - "5700:80"

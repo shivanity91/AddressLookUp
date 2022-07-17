@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddressLookUp.Aggregator.Api", "AddressLookUp.Aggregator.Api\AddressLookUp.Aggregator.Api.csproj", "{1132C3FB-5811-4990-8553-F4B627172CA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{A0E8F97F-4D2E-427C-B4CF-B07D2A7F0563}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{1287E636-254B-4B8C-98DC-F6867948D0D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{4B7F4E36-8DEC-4539-A814-AAA85B7DCD73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Common", "Api.Common\Api.Common.csproj", "{CDCFD204-2B20-480A-A9C4-6EB237175616}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingWorker.Api", "PingWorker.Api\PingWorker.Api.csproj", "{4EFF1B3B-CFF7-4CDD-8046-DB72699B7F11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PingWorker", "PingWorker", "{5BB4F888-7CFC-4ABA-A062-1D13DC05EBAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingWorker.Api.Tests", "PingWorker.Api.Tests\PingWorker.Api.Tests.csproj", "{D9DEE8F0-1830-4B47-9720-3DFF82AE27C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1132C3FB-5811-4990-8553-F4B627172CA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1132C3FB-5811-4990-8553-F4B627172CA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1132C3FB-5811-4990-8553-F4B627172CA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1132C3FB-5811-4990-8553-F4B627172CA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDCFD204-2B20-480A-A9C4-6EB237175616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDCFD204-2B20-480A-A9C4-6EB237175616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDCFD204-2B20-480A-A9C4-6EB237175616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDCFD204-2B20-480A-A9C4-6EB237175616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EFF1B3B-CFF7-4CDD-8046-DB72699B7F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EFF1B3B-CFF7-4CDD-8046-DB72699B7F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EFF1B3B-CFF7-4CDD-8046-DB72699B7F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EFF1B3B-CFF7-4CDD-8046-DB72699B7F11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9DEE8F0-1830-4B47-9720-3DFF82AE27C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9DEE8F0-1830-4B47-9720-3DFF82AE27C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9DEE8F0-1830-4B47-9720-3DFF82AE27C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9DEE8F0-1830-4B47-9720-3DFF82AE27C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1132C3FB-5811-4990-8553-F4B627172CA7} = {A0E8F97F-4D2E-427C-B4CF-B07D2A7F0563}
+		{CDCFD204-2B20-480A-A9C4-6EB237175616} = {4B7F4E36-8DEC-4539-A814-AAA85B7DCD73}
+		{4EFF1B3B-CFF7-4CDD-8046-DB72699B7F11} = {5BB4F888-7CFC-4ABA-A062-1D13DC05EBAD}
+		{5BB4F888-7CFC-4ABA-A062-1D13DC05EBAD} = {1287E636-254B-4B8C-98DC-F6867948D0D2}
+		{D9DEE8F0-1830-4B47-9720-3DFF82AE27C0} = {5BB4F888-7CFC-4ABA-A062-1D13DC05EBAD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F336A46-D61F-4E7F-95C7-B1E08F2AA191}
+	EndGlobalSection
+EndGlobal
