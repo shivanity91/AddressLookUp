@@ -3,10 +3,13 @@ AddressLookUp - an API for IP/Domain Address LookUp.
 ### Description
 
 Endpoint: https://localhost:7085/api/lookup/8.8.8.8
+
 Required Parameter : address - User has to send address for lookup. This is a required field.
+
 Optional Parameter(query) : servicelist - User can send list of services they want to use for lookup. This is an optional field.
 
 ### Implemented with Microservices - API Gateway Pattern
+
 AddressLookUp is an aggregated API which is calling multiple services underneath the hood for address lookup.
 
 Rule: If servicelist is empty, then sending response for default serviceslist `ping,reversedns,rdap,geoip`
@@ -17,12 +20,12 @@ otherwise, will send response for only asked serviceslist options.
 `GET /api/lookup/{address}?servicelist=` ->  Returns JSON from the specified set of services in the `servicelist` parameter.
 If none is passed to servicelist, it will send response of default services `ping,reversedns,rdap,geoip`
 
-	**Parameter** - `address`
+**Parameter** - `address`
 
   - Type `{string}` - IP Address or Domain
 	- Example: `8.8.8.8` or `google.com`
 
-   **Parameter** - `servicelist`
+ **Parameter** - `servicelist`
 
   - Type `{string}` - Comma separated list of strings
     - Accepatable Values:
