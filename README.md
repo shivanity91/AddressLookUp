@@ -53,9 +53,9 @@ cd <project root dir>
 docker-compose up --build
 ``` 
 
-### Run AddressLookUp.Api 
+### Run AddressLookUp.Aggregator.Api 
 
-Since facade api (AddressLookUp.Api) is not included in docker compose, it needs to be run separately.
+Since facade api (AddressLookUp.Aggregator.Api) is not included in docker compose, it needs to be run separately.
 
 ```shell
 cd <project root dir>
@@ -66,7 +66,7 @@ Now, API can be tested using this URl - https://localhost:7085/api/lookup/8.8.8.
 
 ### To test API using Swagger
 
-  - Make `AddressLookUp.Api` as a startup project and run it from VS 2022
+  - Make `AddressLookUp.Aggregator.Api` as a startup project and run it from VS 2022
 
   - The swagger URL will be - https://localhost:7085/swagger/index.html
 
