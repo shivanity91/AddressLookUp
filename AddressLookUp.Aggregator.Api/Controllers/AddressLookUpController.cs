@@ -15,9 +15,9 @@ namespace AddressLookUp.Aggregator.Api.Controllers
             _addressLookUpService = addressLookUpService;
         }
 
-        [HttpGet("{servicelist}/{address}", Name = "GetAddressLookUpAsync")]
+        [HttpGet("{address}", Name = "GetAddressLookUpAsync")]
         [ProducesResponseType(typeof(AddressLookUpResult), 200)]
-        public async Task<IActionResult> GetAddressLookUpAsync(string servicelist, string address)
+        public async Task<IActionResult> GetAddressLookUpAsync(string address, [FromQuery]string? servicelist)
         {
 
             var result = await _addressLookUpService.GetAddressLookUpAsync(address, servicelist);

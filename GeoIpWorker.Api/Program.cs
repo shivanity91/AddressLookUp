@@ -1,6 +1,6 @@
 using Api.Common.DataProvider;
-using PingWorker.Api.Models;
-using PingWorker.Api.Services;
+using GeoIpWorker.Api.Models;
+using GeoIpWorker.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,13 +10,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton(_ =>
 {
-    PingApiOptions pingApiOptions = new();
-    builder.Configuration.Bind("PingApiOptions", pingApiOptions);
-    return pingApiOptions;
+    GeoIpApiOptions geoIpApiOptions = new();
+    builder.Configuration.Bind("GeoIpApiOptions", geoIpApiOptions);
+    return geoIpApiOptions;
 });
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton<IDataProviderService, DataProviderService>();
-builder.Services.AddSingleton<IPingLookUpService, PingLookUpService>();
+builder.Services.AddSingleton<IGeoIpLookUpService, GeoIpLookUpService>();
 
 var app = builder.Build();
 

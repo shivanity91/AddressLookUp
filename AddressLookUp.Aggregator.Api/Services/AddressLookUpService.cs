@@ -2,7 +2,9 @@
 using AddressLookUp.Aggregator.Api.Models;
 using Api.Common;
 using Api.Common.Contracts;
+using Api.Common.Validation;
 using Api.Common.WorkerServices;
+using static Api.Common.Validation.AddressValidator;
 
 namespace AddressLookUp.Aggregator.Api.Services
 {
@@ -30,6 +32,15 @@ namespace AddressLookUp.Aggregator.Api.Services
                     case Constants.Ping:
                         servicesLookUpResult.Ping = await GetPingDataAsync(address);
                         break;
+                    case Constants.RDAP:
+                        servicesLookUpResult.Rdap = await GetRdapDataAsync(address);
+                        break;
+                    case Constants.GeoIP:
+                        servicesLookUpResult.GeoIp = await GetGeoIpDataAsync(address);
+                        break;
+                    case Constants.ReverseDNS:
+                        servicesLookUpResult.ReverseDns = await GetReverseDnsDataAsync(address);
+                        break;
                     default:
                         break;
                 }
@@ -40,9 +51,45 @@ namespace AddressLookUp.Aggregator.Api.Services
 
         private async Task<PingLookUpResult> GetPingDataAsync(string address)
         {
-            var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.Ping, _serviceOptions.PingApiUrl);
+            var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.Ping, _serviceOptions.PingApiUrl, string.Empty);
             PingLookUpWorker pingWorker = new(serviceUrl);
             PingLookUpResult result = await pingWorker.GetAddressLookUpResultAsync();
+            return result;
+        }
+
+        private async Task<RdapLookUpResult> GetRdapDataAsync(string address)
+        {
+            string addressType = string.Empty;
+
+            switch (GetAddressType(address))
+            {
+                case AddressType.Domain:
+                    addressType = "domain";
+                    break;
+                case AddressType.IPAddress:
+                    addressType = "ip";
+                    break;
+            }
+
+            var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.RDAP, _serviceOptions.RdapApiUrl, addressType);
+            RdapLookUpWorker rdapWorker = new(serviceUrl);
+            RdapLookUpResult result = await rdapWorker.GetAddressLookUpResultAsync();
+            return result;
+        }
+
+        private async Task<GeoIpLookUpResult> GetGeoIpDataAsync(string address)
+        {
+            var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.GeoIP, _serviceOptions.GeoIpApiUrl, string.Empty);
+            GeoIpLookUpWorker geoIpWorker = new(serviceUrl);
+            GeoIpLookUpResult result = await geoIpWorker.GetAddressLookUpResultAsync();
+            return result;
+        }
+
+        private async Task<ReverseDnsLookUpResult> GetReverseDnsDataAsync(string address)
+        {
+            var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.ReverseDNS, _serviceOptions.ReverseDnsApiUrl, string.Empty);
+            ReverseDnsLookUpWorker reverseDnsWorker = new(serviceUrl);
+            ReverseDnsLookUpResult result = await reverseDnsWorker.GetAddressLookUpResultAsync();
             return result;
         }
     }

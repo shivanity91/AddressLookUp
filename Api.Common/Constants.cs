@@ -7,7 +7,7 @@
         public static IReadOnlyList<string> DefaultServiceOptions = _defaultServiceOptions;
 
         public const string Ping = "ping";
-        public const string ReverseDNS = "rdns";
+        public const string ReverseDNS = "reversedns";
         public const string RDAP = "rdap";
         public const string GeoIP = "geoip";
     }

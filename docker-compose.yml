@@ -1,10 +1,30 @@
 version: '3.3'
 
-services:
-  
+services:  
   ping-api:
     build:
       context: ./
       dockerfile: PingWorker.Api/Dockerfile
     ports:
      - "5700:80"
+     
+  geoip-api:
+    build:
+      context: ./
+      dockerfile: GeoIpWorker.Api/Dockerfile
+    ports:
+     - "5701:80"
+     
+  rdap-api:
+    build:
+      context: ./
+      dockerfile: RdapWorker.Api/Dockerfile
+    ports:
+     - "5702:80"
+     
+  reversedns-api:
+    build:
+      context: ./
+      dockerfile: ReverseDnsWorker.Api/Dockerfile
+    ports:
+     - "5703:80"
