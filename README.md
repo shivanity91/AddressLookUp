@@ -10,7 +10,7 @@ Optional Parameter(query) : servicelist - User can send list of services they wa
 
 ### Implemented with Microservices - API Gateway Pattern
 
-AddressLookUp is an aggregated API which is calling multiple services underneath the hood for address lookup.
+AddressLookUp.Aggregator.API is an aggregated API which is calling multiple services underneath the hood for address lookup.
 
 Rule: If servicelist is empty, then sending response for default serviceslist `ping,reversedns,rdap,geoip`
 otherwise, will send response for only asked serviceslist options.
@@ -59,7 +59,7 @@ Since facade api (AddressLookUp.Aggregator.Api) is not included in docker compos
 
 ```shell
 cd <project root dir>
-dotnet run --project AddressLookUp.Api
+dotnet run --project AddressLookUp.Aggregator.Api
 ```
 
 Now, API can be tested using this URl - https://localhost:7085/api/lookup/8.8.8.8
