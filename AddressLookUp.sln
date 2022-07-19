@@ -27,13 +27,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReverseDnsWorker", "Reverse
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoIpWorker.Api", "GeoIpWorker.Api\GeoIpWorker.Api.csproj", "{C2A2A1EB-6B2C-4255-9C14-1DA0A99C936C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RdapWorker.Api", "RdapWorker.Api\RdapWorker.Api.csproj", "{D9A580CF-8CE3-4714-9B75-D07181645864}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RdapWorker.Api", "RdapWorker.Api\RdapWorker.Api.csproj", "{D9A580CF-8CE3-4714-9B75-D07181645864}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RdapWorker.Api.Tests", "RdapWorker.Api.Tests\RdapWorker.Api.Tests.csproj", "{BCB27E5B-CFA2-4691-92AF-AE4CA5B8ACD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RdapWorker.Api.Tests", "RdapWorker.Api.Tests\RdapWorker.Api.Tests.csproj", "{BCB27E5B-CFA2-4691-92AF-AE4CA5B8ACD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseDnsWorker.Api.Tests", "ReverseDnsWorker.Api.Tests\ReverseDnsWorker.Api.Tests.csproj", "{84019290-78DD-4D46-817D-CB33E9D2E88D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReverseDnsWorker.Api.Tests", "ReverseDnsWorker.Api.Tests\ReverseDnsWorker.Api.Tests.csproj", "{84019290-78DD-4D46-817D-CB33E9D2E88D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReverseDnsWorker.Api", "ReverseDnsWorker.Api\ReverseDnsWorker.Api.csproj", "{EE17F36A-24E2-4D7A-B8E3-696D75950548}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainAvailabilityWorker", "DomainAvailabilityWorker", "{ED94CC36-6DB7-45E6-A7FD-A81370CBD8E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainAvailabilityWorker.Api.Tests", "DomainAvailabilityWorker.Api.Tests\DomainAvailabilityWorker.Api.Tests.csproj", "{83949A8A-9DD1-46C2-80A2-B2CBC6F9B99E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoIpWorker.Api.Tests", "GeoIpWorker.Api.Tests\GeoIpWorker.Api.Tests.csproj", "{A1197C4D-198C-426A-9D69-54FA954C0053}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainAvailabilityWorker.Api", "DomainAvailabilityWorker.Api\DomainAvailabilityWorker.Api.csproj", "{904D58D4-83DF-4B71-A9F9-FD3C7DBF95B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +85,18 @@ Global
 		{EE17F36A-24E2-4D7A-B8E3-696D75950548}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE17F36A-24E2-4D7A-B8E3-696D75950548}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE17F36A-24E2-4D7A-B8E3-696D75950548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83949A8A-9DD1-46C2-80A2-B2CBC6F9B99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83949A8A-9DD1-46C2-80A2-B2CBC6F9B99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83949A8A-9DD1-46C2-80A2-B2CBC6F9B99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83949A8A-9DD1-46C2-80A2-B2CBC6F9B99E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1197C4D-198C-426A-9D69-54FA954C0053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1197C4D-198C-426A-9D69-54FA954C0053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1197C4D-198C-426A-9D69-54FA954C0053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1197C4D-198C-426A-9D69-54FA954C0053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{904D58D4-83DF-4B71-A9F9-FD3C7DBF95B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{904D58D4-83DF-4B71-A9F9-FD3C7DBF95B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{904D58D4-83DF-4B71-A9F9-FD3C7DBF95B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{904D58D4-83DF-4B71-A9F9-FD3C7DBF95B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +115,10 @@ Global
 		{BCB27E5B-CFA2-4691-92AF-AE4CA5B8ACD5} = {9D1F647A-8A62-4129-8ED9-BAD2395AA701}
 		{84019290-78DD-4D46-817D-CB33E9D2E88D} = {1B1EDBC5-FD9F-4397-92F8-995868CDF612}
 		{EE17F36A-24E2-4D7A-B8E3-696D75950548} = {1B1EDBC5-FD9F-4397-92F8-995868CDF612}
+		{ED94CC36-6DB7-45E6-A7FD-A81370CBD8E6} = {1287E636-254B-4B8C-98DC-F6867948D0D2}
+		{83949A8A-9DD1-46C2-80A2-B2CBC6F9B99E} = {ED94CC36-6DB7-45E6-A7FD-A81370CBD8E6}
+		{A1197C4D-198C-426A-9D69-54FA954C0053} = {AFC52160-5A0B-4BAB-AF47-61B81DAF4892}
+		{904D58D4-83DF-4B71-A9F9-FD3C7DBF95B2} = {ED94CC36-6DB7-45E6-A7FD-A81370CBD8E6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F336A46-D61F-4E7F-95C7-B1E08F2AA191}

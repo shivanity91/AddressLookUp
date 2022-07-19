@@ -6,5 +6,6 @@
         public string GeoIpApiUrl { get; set; }
         public string RdapApiUrl { get; set; }
         public string ReverseDnsApiUrl { get; set; }
+        public string DomainAvailabilityApiUrl { get; set; }
     }
 }

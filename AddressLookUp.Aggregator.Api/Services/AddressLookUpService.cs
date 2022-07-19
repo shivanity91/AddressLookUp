@@ -40,6 +40,9 @@ namespace AddressLookUp.Aggregator.Api.Services
                     case Constants.ReverseDNS:
                         servicesLookUpResult.ReverseDns = await GetReverseDnsDataAsync(address);
                         break;
+                    case Constants.DomainAvailability:
+                        servicesLookUpResult.DomainAvailability = await GetDomainAvailabilityDataAsync(address);
+                        break;
                     default:
                         break;
                 }
@@ -89,6 +92,14 @@ namespace AddressLookUp.Aggregator.Api.Services
             var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.ReverseDNS, _serviceOptions.ReverseDnsApiUrl);
             ReverseDnsLookUpWorker reverseDnsWorker = new(serviceUrl);
             ReverseDnsLookUpResult result = await reverseDnsWorker.GetAddressLookUpResultAsync();
+            return result;
+        }
+
+        private async Task<DomainAvailabilityResult> GetDomainAvailabilityDataAsync(string address)
+        {
+            var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.DomainAvailability, _serviceOptions.DomainAvailabilityApiUrl);
+            DomainAvailabilityWorker domainAvailabilityWorker = new(serviceUrl);
+            DomainAvailabilityResult result = await domainAvailabilityWorker.GetAddressLookUpResultAsync();
             return result;
         }
     }

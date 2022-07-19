@@ -1,28 +1,27 @@
 ﻿using Api.Common.Contracts;
 using Api.Common.Validation;
-using GeoIpWorker.Api.Services;
+using DomainAvailabilityWorker.Api.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-namespace GeoIpWorker.Api.Controllers
+namespace DomainAvailabilityWorker.Api.Controllers
 {
-
     [Produces("application/json")]
-    [Route("api/geoip")]
-    public class GeoIpLookUpController : Controller
+    [Route("api/domain")]
+    public class DomainAvailabilityWorkerController : Controller
     {
-        private readonly IGeoIpLookUpService _geoIpLookUpService;
+        private readonly IDomainAvailabilityService _domainAvailabilityService;
 
-        public GeoIpLookUpController(IGeoIpLookUpService geoIpLookUpService)
+        public DomainAvailabilityWorkerController(IDomainAvailabilityService domainAvailabilityService)
         {
-            _geoIpLookUpService = geoIpLookUpService;
+            _domainAvailabilityService = domainAvailabilityService;
         }
 
 
         [HttpGet("{address}")]
-        [ProducesResponseType(typeof(GeoIpLookUpResult), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(DomainAvailabilityResult), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(ValidationErrorModel), (int)HttpStatusCode.NotFound)]
-        public async Task<IActionResult> GetGeoIpLookUpResultAsync(string address)
+        public async Task<IActionResult> GetDomainAvailabilityLookUpResultAsync(string address)
         {
             if (string.IsNullOrWhiteSpace(address))
             {
@@ -35,9 +34,8 @@ namespace GeoIpWorker.Api.Controllers
                 return BadRequest(new ValidationErrorModel("Validation Failed", "Invalid Address"));
             }
 
-            var result = await _geoIpLookUpService.GetGeoIpLookUpResultAsync(address);
+            var result = await _domainAvailabilityService.GetDomainAvailabilityResultAsync(address);
             return Ok(result);
         }
     }
 }
-

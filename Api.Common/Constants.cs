@@ -10,5 +10,7 @@
         public const string ReverseDNS = "reversedns";
         public const string RDAP = "rdap";
         public const string GeoIP = "geoip";
+        public const string DomainAvailability = "domain";
+        public const string RateLimit = "Rate Limited";
     }
 }

@@ -6,5 +6,6 @@
         public RdapLookUpResult Rdap { get; set; }
         public GeoIpLookUpResult GeoIp { get; set; }
         public ReverseDnsLookUpResult ReverseDns { get; set; }
+        public DomainAvailabilityResult DomainAvailability { get; set; }
     }
 }

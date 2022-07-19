@@ -16,6 +16,8 @@ namespace AddressLookUp.Aggregator.Api.Helpers
                     return $"{baseUrl}/api/geoip/{address}";
                 case Constants.ReverseDNS:
                     return $"{baseUrl}/api/reversedns/{address}";
+                case Constants.DomainAvailability:
+                    return $"{baseUrl}/api/domain/{address}";
                 default:
                     break;
             }
