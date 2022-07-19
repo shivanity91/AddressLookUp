@@ -65,6 +65,9 @@ cd <project root dir>
 docker-compose up --build
 ``` 
 
+![image](https://user-images.githubusercontent.com/39909249/179767686-3991ccf9-11b3-4bc1-9bde-5115edc83584.png)
+
+
 ### Run AddressLookUp.Aggregator.Api 
 
 As facade/aggregated api (AddressLookUp.Aggregator.Api) is not included in docker compose, it needs to be run separately.
