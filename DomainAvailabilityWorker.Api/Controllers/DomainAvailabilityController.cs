@@ -34,7 +34,7 @@ namespace DomainAvailabilityWorker.Api.Controllers
                 return BadRequest(new ValidationErrorModel("Validation Failed", "Invalid Address"));
             }
 
-            var result = await _domainAvailabilityService.GetDomainAvailabilityResultAsync(address);
+            var result = await _domainAvailabilityService.GetDomainAvailabilityLookUpResultAsync(address);
             return Ok(result);
         }
     }

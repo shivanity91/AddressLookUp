@@ -29,9 +29,9 @@ namespace PingWorker.Api.Tests.Controllers
                 HttpContext = new DefaultHttpContext()
             };
 
-            var pingAnalyserResult = new PingLookUpResult { IsSuccess = true, Result = "Sample Address Info" };
+            var pingWorkerResult = new PingLookUpResult { IsSuccess = true, Result = "Sample Ping Address Info" };
 
-            _mockIPingLookUpService.Setup(e => e.GetPingLookUpResultAsync(It.IsAny<string>(), default)).Returns(Task.FromResult(pingAnalyserResult));
+            _mockIPingLookUpService.Setup(e => e.GetPingLookUpResultAsync(It.IsAny<string>(), default)).Returns(Task.FromResult(pingWorkerResult));
             var result = await _pingLookUpController.GetPingLookUpResultAsync("google.com") as OkObjectResult;
             Assert.Equal((int)HttpStatusCode.OK, result.StatusCode);
             Assert.NotNull(result);
@@ -47,9 +47,9 @@ namespace PingWorker.Api.Tests.Controllers
                 HttpContext = new DefaultHttpContext()
             };
 
-            var geoIpAnalysisResult = new PingLookUpResult { IsSuccess = false, Result = "Not a valid address" };
+            var pingWorkerResult = new PingLookUpResult { IsSuccess = false, Result = "Not a valid address" };
 
-            _mockIPingLookUpService.Setup(e => e.GetPingLookUpResultAsync(It.IsAny<string>(), default)).Returns(Task.FromResult(geoIpAnalysisResult));
+            _mockIPingLookUpService.Setup(e => e.GetPingLookUpResultAsync(It.IsAny<string>(), default)).Returns(Task.FromResult(pingWorkerResult));
             var result = await _pingLookUpController.GetPingLookUpResultAsync("abcde") as OkObjectResult;
             Assert.Equal((int)HttpStatusCode.OK, result.StatusCode);
             Assert.NotNull(result);
