@@ -2,13 +2,13 @@ AddressLookUp - an API for IP/Domain Address LookUp.
 
 ### Description
 
-Endpoint: https://localhost:7085/api/lookup/8.8.8.8
+Endpoint: https://localhost:7085/api/addresslookup/8.8.8.8
 
-Required Parameter : address - User has to send address for lookup. This is a required field.
+Required Parameter : address - User has to send address (IP or Domain Name) for lookup. This is a required field.
 
 Optional Parameter(query) : servicelist - User can send list of services they want to use for lookup. This is an optional field.
 
-![image](https://user-images.githubusercontent.com/39909249/179695959-69856bde-b02f-4ea8-af2d-360afaddc37e.png)
+![image](https://user-images.githubusercontent.com/39909249/179764627-df55da82-5a91-4a92-b8af-76b56249524b.png)
 
 
 ### Implemented with Microservices - API Gateway Pattern
@@ -25,7 +25,7 @@ otherwise, will send response for only asked serviceslist options.
 
 ### API Usage
 
-https://localhost:7085/api/lookup/8.8.8.8?servicelist=ping%2Cdomain
+https://localhost:7085/api/addresslookup/8.8.8.8?servicelist=ping%2Cdomain
 
 `GET /api/lookup/{address}?servicelist=ping,domain` ->  Returns JSON from the specified set of services in the `servicelist` parameter.
 If none is passed to servicelist, it will send response of default services `ping,reversedns,rdap,geoip`
@@ -38,11 +38,11 @@ If none is passed to servicelist, it will send response of default services `pin
  **Parameter** - `servicelist`
 
   - Type `{string}` - Comma separated list of strings
-    - Accepatable Values:
-      - `rdap` - RDAP
-      - `reversedns` - ReverseDNS
+    - Accepatable Values:    
       - `ping` - Ping
       - `geoip`- GeoIP
+      - `rdap` - RDAP
+      - `reversedns` - ReverseDNS
       - `domain`- Domain Availability
       
     - Example: `rdap,geoip`
@@ -50,11 +50,12 @@ If none is passed to servicelist, it will send response of default services `pin
 
 ### Building and running the App
 
-### Prerequisites
+### Technologies/Tools Used
 
 - .NET 6
 - Visual Studio 2022
 - Docker Desktop
+- xUnit with Moq
 
 First, run microservices using docker
 
@@ -66,14 +67,14 @@ docker-compose up --build
 
 ### Run AddressLookUp.Aggregator.Api 
 
-Since facade api (AddressLookUp.Aggregator.Api) is not included in docker compose, it needs to be run separately.
+As facade/aggregated api (AddressLookUp.Aggregator.Api) is not included in docker compose, it needs to be run separately.
 
 ```shell
 cd <project root dir>
 dotnet run --project AddressLookUp.Aggregator.Api
 ```
 
-Now, API can be tested using this URl - https://localhost:7085/api/lookup/8.8.8.8
+Now, API can be tested using this URl - https://localhost:7085/api/addresslookup/8.8.8.8
 
 ### To test API using Swagger
 
