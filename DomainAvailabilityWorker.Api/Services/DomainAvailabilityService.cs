@@ -2,24 +2,23 @@
 using Api.Common.DataProvider;
 using DomainAvailabilityWorker.Api.Models;
 
-namespace DomainAvailabilityWorker.Api.Services
+namespace DomainAvailabilityWorker.Api.Services;
+
+public class DomainAvailabilityService : IDomainAvailabilityService
 {
-    public class DomainAvailabilityService : IDomainAvailabilityService
+    private readonly DomainAvailabilityApiOptions _domainCheckApiOptions;
+    private readonly IDataProviderService _dataProviderService;
+
+    public DomainAvailabilityService(DomainAvailabilityApiOptions domainCheckApiOptions, IDataProviderService dataProviderService)
     {
-        private readonly DomainAvailabilityApiOptions _domainCheckApiOptions;
-        private readonly IDataProviderService _dataProviderService;
+        _domainCheckApiOptions = domainCheckApiOptions;
+        _dataProviderService = dataProviderService;
+    }
 
-        public DomainAvailabilityService(DomainAvailabilityApiOptions domainCheckApiOptions, IDataProviderService dataProviderService)
-        {
-            _domainCheckApiOptions = domainCheckApiOptions;
-            _dataProviderService = dataProviderService;
-        }
-
-        public async Task<DomainAvailabilityResult> GetDomainAvailabilityLookUpResultAsync(string address, CancellationToken cancellationToken = default)
-        {
-            var data = await _dataProviderService.GetResultAsync($"{_domainCheckApiOptions.lookUpUrl}?apiKey={_domainCheckApiOptions.apiKey}&domainName={address}", cancellationToken);
-            var result = new DomainAvailabilityResult { Result = data, IsSuccess = !string.IsNullOrWhiteSpace(data) };
-            return result;
-        }
+    public async Task<DomainAvailabilityResult> GetDomainAvailabilityLookUpResultAsync(string address, CancellationToken cancellationToken = default)
+    {
+        var data = await _dataProviderService.GetResultAsync($"{_domainCheckApiOptions.lookUpUrl}?apiKey={_domainCheckApiOptions.apiKey}&domainName={address}", cancellationToken);
+        var result = new DomainAvailabilityResult { Result = data, IsSuccess = !string.IsNullOrWhiteSpace(data) };
+        return result;
     }
 }

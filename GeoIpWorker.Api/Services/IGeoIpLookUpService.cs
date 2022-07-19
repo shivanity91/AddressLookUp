@@ -1,9 +1,8 @@
 ﻿using Api.Common.Contracts;
 
-namespace GeoIpWorker.Api.Services
+namespace GeoIpWorker.Api.Services;
+
+public interface IGeoIpLookUpService
 {
-    public interface IGeoIpLookUpService
-    {
-        Task<GeoIpLookUpResult> GetGeoIpLookUpResultAsync(string address, CancellationToken cancellationToken = default);
-    }
+    Task<GeoIpLookUpResult> GetGeoIpLookUpResultAsync(string address, CancellationToken cancellationToken = default);
 }

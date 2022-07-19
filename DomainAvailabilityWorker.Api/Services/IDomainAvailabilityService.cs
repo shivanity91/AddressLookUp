@@ -1,9 +1,8 @@
 ﻿using Api.Common.Contracts;
 
-namespace DomainAvailabilityWorker.Api.Services
+namespace DomainAvailabilityWorker.Api.Services;
+
+public interface IDomainAvailabilityService
 {
-    public interface IDomainAvailabilityService
-    {
-        Task<DomainAvailabilityResult> GetDomainAvailabilityLookUpResultAsync(string address, CancellationToken cancellationToken = default);
-    }
+    Task<DomainAvailabilityResult> GetDomainAvailabilityLookUpResultAsync(string address, CancellationToken cancellationToken = default);
 }

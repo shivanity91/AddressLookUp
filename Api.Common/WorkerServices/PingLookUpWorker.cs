@@ -1,11 +1,10 @@
 ﻿using Api.Common.Contracts;
 
-namespace Api.Common.WorkerServices
+namespace Api.Common.WorkerServices;
+
+public class PingLookUpWorker : AddressLookUpWorkerBase<PingLookUpResult>
 {
-    public class PingLookUpWorker : AddressLookUpWorkerBase<PingLookUpResult>
+    public PingLookUpWorker(string url) : base(url)
     {
-        public PingLookUpWorker(string url) : base(url)
-        {
-        }
     }
 }

@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton(_ =>
 {
     PingApiOptions pingApiOptions = new();
@@ -21,9 +20,6 @@ builder.Services.AddSingleton<IPingLookUpService, PingLookUpService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-}
 
 app.UseHttpsRedirection();
 

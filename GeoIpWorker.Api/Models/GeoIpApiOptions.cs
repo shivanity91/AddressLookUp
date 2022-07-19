@@ -1,7 +1,6 @@
-﻿namespace GeoIpWorker.Api.Models
+﻿namespace GeoIpWorker.Api.Models;
+
+public class GeoIpApiOptions
 {
-    public class GeoIpApiOptions
-    {
-        public string lookUpUrl { get; set; }
-    }
+    public string lookUpUrl { get; set; }
 }

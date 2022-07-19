@@ -1,6 +1,5 @@
-﻿namespace Api.Common.Contracts
+﻿namespace Api.Common.Contracts;
+
+public class RdapLookUpResult : AddressLookUpResultBase
 {
-    public class RdapLookUpResult : AddressLookUpResultBase
-    {
-    }
 }

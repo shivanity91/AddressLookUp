@@ -1,11 +1,10 @@
 ﻿using Api.Common.Contracts;
 
-namespace Api.Common.WorkerServices
+namespace Api.Common.WorkerServices;
+
+public class ReverseDnsLookUpWorker : AddressLookUpWorkerBase<ReverseDnsLookUpResult>
 {
-    public class ReverseDnsLookUpWorker : AddressLookUpWorkerBase<ReverseDnsLookUpResult>
+    public ReverseDnsLookUpWorker(string url) : base(url)
     {
-        public ReverseDnsLookUpWorker(string url) : base(url)
-        {
-        }
     }
 }

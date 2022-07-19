@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AddressLookUp.Aggregator.Api\AddressLookUp.Aggregator.Api.csproj" />
+    <ProjectReference Include="..\PingWorker.Api\PingWorker.Api.csproj" />
   </ItemGroup>
 
 </Project>

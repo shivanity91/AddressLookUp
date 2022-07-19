@@ -2,24 +2,23 @@
 using Api.Common.DataProvider;
 using PingWorker.Api.Models;
 
-namespace PingWorker.Api.Services
+namespace PingWorker.Api.Services;
+
+public class PingLookUpService : IPingLookUpService
 {
-    public class PingLookUpService : IPingLookUpService
+    private readonly PingApiOptions _pingApiOptions;
+    private readonly IDataProviderService _dataProviderService;
+
+    public PingLookUpService(PingApiOptions pingApiOptions, IDataProviderService dataProviderService)
     {
-        private readonly PingApiOptions _pingApiOptions;
-        private readonly IDataProviderService _dataProviderService;
+        _pingApiOptions = pingApiOptions;
+        _dataProviderService = dataProviderService;
+    }
 
-        public PingLookUpService(PingApiOptions pingApiOptions, IDataProviderService dataProviderService)
-        {
-            _pingApiOptions = pingApiOptions;
-            _dataProviderService = dataProviderService;
-        }
-
-        public async Task<PingLookUpResult> GetPingLookUpResultAsync(string address, CancellationToken cancellationToken = default)
-        {
-            var data = await _dataProviderService.GetResultAsync($"{_pingApiOptions.lookUpUrl}/?host={address}", cancellationToken);
-            var result = new PingLookUpResult { Result = data, IsSuccess = !string.IsNullOrWhiteSpace(data) };
-            return result;
-        }
+    public async Task<PingLookUpResult> GetPingLookUpResultAsync(string address, CancellationToken cancellationToken = default)
+    {
+        var data = await _dataProviderService.GetResultAsync($"{_pingApiOptions.lookUpUrl}/?host={address}", cancellationToken);
+        var result = new PingLookUpResult { Result = data, IsSuccess = !string.IsNullOrWhiteSpace(data) };
+        return result;
     }
 }

@@ -1,11 +1,10 @@
 ﻿using Api.Common.Contracts;
 
-namespace Api.Common.WorkerServices
+namespace Api.Common.WorkerServices;
+
+public class DomainAvailabilityWorker : AddressLookUpWorkerBase<DomainAvailabilityResult>
 {
-    public class DomainAvailabilityWorker : AddressLookUpWorkerBase<DomainAvailabilityResult>
+    public DomainAvailabilityWorker(string url) : base(url)
     {
-        public DomainAvailabilityWorker(string url) : base(url)
-        {
-        }
     }
 }

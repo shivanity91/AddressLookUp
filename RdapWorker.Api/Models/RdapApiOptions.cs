@@ -1,7 +1,6 @@
-﻿namespace RdapWorker.Api.Models
+﻿namespace RdapWorker.Api.Models;
+
+public class RdapApiOptions
 {
-    public class RdapApiOptions
-    {
-        public string lookUpUrl { get; set; }
-    }
+    public string lookUpUrl { get; set; }
 }
