@@ -2,7 +2,6 @@
 using AddressLookUp.Aggregator.Api.Models;
 using Api.Common;
 using Api.Common.Contracts;
-using Api.Common.Validation;
 using Api.Common.WorkerServices;
 using static Api.Common.Validation.AddressValidator;
 
@@ -51,7 +50,7 @@ namespace AddressLookUp.Aggregator.Api.Services
 
         private async Task<PingLookUpResult> GetPingDataAsync(string address)
         {
-            var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.Ping, _serviceOptions.PingApiUrl, string.Empty);
+            var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.Ping, _serviceOptions.PingApiUrl);
             PingLookUpWorker pingWorker = new(serviceUrl);
             PingLookUpResult result = await pingWorker.GetAddressLookUpResultAsync();
             return result;
@@ -79,7 +78,7 @@ namespace AddressLookUp.Aggregator.Api.Services
 
         private async Task<GeoIpLookUpResult> GetGeoIpDataAsync(string address)
         {
-            var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.GeoIP, _serviceOptions.GeoIpApiUrl, string.Empty);
+            var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.GeoIP, _serviceOptions.GeoIpApiUrl);
             GeoIpLookUpWorker geoIpWorker = new(serviceUrl);
             GeoIpLookUpResult result = await geoIpWorker.GetAddressLookUpResultAsync();
             return result;
@@ -87,7 +86,7 @@ namespace AddressLookUp.Aggregator.Api.Services
 
         private async Task<ReverseDnsLookUpResult> GetReverseDnsDataAsync(string address)
         {
-            var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.ReverseDNS, _serviceOptions.ReverseDnsApiUrl, string.Empty);
+            var serviceUrl = HttpClientHelper.GetServiceUrl(address, Constants.ReverseDNS, _serviceOptions.ReverseDnsApiUrl);
             ReverseDnsLookUpWorker reverseDnsWorker = new(serviceUrl);
             ReverseDnsLookUpResult result = await reverseDnsWorker.GetAddressLookUpResultAsync();
             return result;

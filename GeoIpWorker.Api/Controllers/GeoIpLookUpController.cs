@@ -1,6 +1,8 @@
 ﻿using Api.Common.Contracts;
+using Api.Common.Validation;
 using GeoIpWorker.Api.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace GeoIpWorker.Api.Controllers
 {
@@ -16,10 +18,23 @@ namespace GeoIpWorker.Api.Controllers
             _geoIpLookUpService = geoIpLookUpService;
         }
 
-        [ProducesResponseType(typeof(GeoIpLookUpResult), 200)]
+
         [HttpGet("{address}")]
+        [ProducesResponseType(typeof(GeoIpLookUpResult), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ValidationErrorModel), (int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> GetPingLookUpResultAsync(string address)
         {
+            if (string.IsNullOrWhiteSpace(address))
+            {
+                return BadRequest(new ValidationErrorModel("Validation Failed", new[] { new Error("Get Address LookUp Results", "address cannot be empty") }));
+            }
+
+            var isValidAddress = AddressValidator.IsAddressValid(address);
+            if (!isValidAddress)
+            {
+                return BadRequest(new ValidationErrorModel("Validation Failed", "Invalid Address"));
+            }
+
             var result = await _geoIpLookUpService.GetGeoIpLookUpResultAsync(address);
             return Ok(result);
         }

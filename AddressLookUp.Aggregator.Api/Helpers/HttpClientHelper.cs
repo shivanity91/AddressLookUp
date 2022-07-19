@@ -4,7 +4,7 @@ namespace AddressLookUp.Aggregator.Api.Helpers
 {
     public static class HttpClientHelper
     {
-        public static string GetServiceUrl(string address, string service, string baseUrl, string addressType)
+        public static string GetServiceUrl(string address, string service, string baseUrl, string? addressType = null)
         {
             switch (service)
             {
