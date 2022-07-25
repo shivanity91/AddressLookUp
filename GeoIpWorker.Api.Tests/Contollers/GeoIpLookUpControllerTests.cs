@@ -7,6 +7,7 @@ using Xunit;
 using Api.Common.Contracts;
 using GeoIpWorker.Api.Services;
 using GeoIpWorker.Api.Controllers;
+using System.Threading;
 
 namespace GeoIpWorker.Api.Tests.Controllers;
 
@@ -49,7 +50,7 @@ public class GeoIpLookUpControllerTests
 
         var geoIpWorkerResult = new GeoIpLookUpResult { IsSuccess = false, Result = "Not a valid address" };
 
-        _mockIGeoIpLookUpService.Setup(e => e.GetGeoIpLookUpResultAsync(It.IsAny<string>(), default)).Returns(Task.FromResult(geoIpWorkerResult));
+        _mockIGeoIpLookUpService.Setup(e => e.GetGeoIpLookUpResultAsync(It.IsAny<string>(), It.IsAny<CancellationToken>())).Returns(Task.FromResult(geoIpWorkerResult));
         var result = await _geoIpLookUpController.GetGeoIpLookUpResultAsync("abcde") as OkObjectResult;
         Assert.Equal((int)HttpStatusCode.OK, result.StatusCode);
         Assert.NotNull(result);

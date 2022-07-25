@@ -1,6 +1,13 @@
 version: '3.3'
 
-services:  
+services:      
+  addresslookup-gateway-api:
+    build:
+      context: ./
+      dockerfile: AddressLookUp.Aggregator.Api/Dockerfile
+    ports:
+     - "5085:80"
+     
   ping-api:
     build:
       context: ./

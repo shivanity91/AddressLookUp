@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddLogging();
 
 builder.Services.AddSingleton(_ =>
 {
@@ -18,6 +19,11 @@ builder.Services.AddSingleton(_ =>
 });
 
 builder.Services.AddSingleton<IAddressLookUpService, AddressLookUpService>();
+builder.Services.AddSingleton<IPingWorkerService, PingWorkerService>();
+builder.Services.AddSingleton<IRdapWorkerService, RdapWorkerService>();
+builder.Services.AddSingleton<IGeoIpWorkerService, GeoIpWorkerService>();
+builder.Services.AddSingleton<IReverseDnsWorkerService, ReverseDnsWorkerService>();
+builder.Services.AddSingleton<IDomainAvailabilityWorkerService, DomainAvailabilityWorkerService>();
 
 var app = builder.Build();
 

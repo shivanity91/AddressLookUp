@@ -33,7 +33,7 @@ public class AddressLookUpController : Controller
             return BadRequest(new ValidationErrorModel("Validation Failed", "Invalid Address"));
         }
 
-        var result = await _addressLookUpService.GetAddressLookUpAsync(address, servicelist, Request.HttpContext.RequestAborted);
+        var result = await _addressLookUpService.GetAddressLookUpAsync(address, servicelist, HttpContext.RequestAborted);
         if (result is null)
         {
             return NotFound(new ValidationErrorModel("Empty response", "No data found"));
