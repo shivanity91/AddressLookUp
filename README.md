@@ -4,9 +4,12 @@ AddressLookUp - an API for IP/Domain Address LookUp.
 
 App urls:
 
-http://localhost:5085/swagger/index.html
+http://localhost:5085/swagger/index.html (Docker running)
 
-https://localhost:7085/swagger/index.html
+![image](https://user-images.githubusercontent.com/39909249/180860647-98686aca-c2e4-4334-a18a-798adf891123.png)
+
+
+https://localhost:7085/swagger/index.html (local running)
 
 API Endpoint: https://localhost:7085/api/addresslookup/8.8.8.8
 
@@ -32,6 +35,7 @@ otherwise, will send response for only asked serviceslist options.
 ### API Usage
 
 Docker running - http://localhost:5085/api/addresslookup/google.com?servicelist=ping%2Cdomain
+
 local - https://localhost:7085/api/addresslookup/8.8.8.8?servicelist=ping%2Cdomain
 
 `GET /api/addresslookup/{address}?servicelist=ping,domain` ->  Returns JSON from the specified set of services in the `servicelist` parameter.
@@ -72,7 +76,7 @@ cd <project root dir>
 docker-compose up --build
 ``` 
 
-![image](https://user-images.githubusercontent.com/39909249/179767686-3991ccf9-11b3-4bc1-9bde-5115edc83584.png)
+![image](https://user-images.githubusercontent.com/39909249/180860518-1d6f269b-c656-4732-b471-a4f3083d05d5.png)
 
 
 ### Run AddressLookUp.Aggregator.Api 
